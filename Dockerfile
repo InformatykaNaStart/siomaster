@@ -25,6 +25,14 @@ RUN git clone https://github.com/xneby/oioioi.git /home/sio2/oioioi &&\
 RUN git clone https://github.com/InformatykaNaStart/staszic-sio2.git /home/sio2/staszic &&\
   echo "/home/sio2" > /home/sio2/venv/lib/python2.7/site-packages/staszic.pth
 
+### sandboxy
+RUN mkdir -p /home/sio2/deployment/media/files &&\
+  cd  /home/sio2/deployment/media/files &&\
+  wget -q http://hugo.w.staszic.waw.pl/sio2-sandboxes/all.tar.gz &&\
+  tar -zxvf all.tar.gz &&\
+  mv sio2-sandboxes sandboxes &&\
+  rm all.tar.gz
+
 ### folder deployment
 ENV IP=127.0.0.1
 RUN . /home/sio2/venv/bin/activate &&\
