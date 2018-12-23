@@ -53,16 +53,8 @@ RUN /etc/init.d/postgresql start &&\
 ### konfiguracja nginxa
 RUN ln -s /home/sio2/deployment/nginx-site.conf /etc/nginx/sites-enabled/oioioi &&\
   rm /etc/nginx/sites-enabled/default
-COPY --chown=sio2:sio2 runRoot.sh /home/sio2/
-COPY --chown=sio2:sio2 runSio2.sh /home/sio2/
+COPY --chown=sio2:sio2 root/home/sio2 /home/sio2
 
-EXPOSE 80
-EXPOSE 7888
-EXPOSE 9999
-EXPOSE 9877
-EXPOSE 7890
-EXPOSE 5672
-EXPOSE 7899
-
+EXPOSE 80 5672 7888 7899 7890 9877 9999
 ENTRYPOINT ["/home/sio2/runRoot.sh"]
 
