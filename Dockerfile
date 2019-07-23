@@ -1,4 +1,4 @@
-FROM debian:stable
+FROM debian:stretch
 
 RUN apt update &&\
   DEBIAN_FRONTEND=noninteractive apt install -y git bash supervisor python-virtualenv libpython2.7-dev libdb-dev build-essential rabbitmq-server openssh-server postgresql postgresql-client nginx lighttpd librabbitmq4 librabbitmq-dev wget &&\
